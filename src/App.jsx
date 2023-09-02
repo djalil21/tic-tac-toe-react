@@ -22,12 +22,12 @@ function App() {
   useEffect(()=>{
     winnigCombos.forEach((combo)=>{
       const circleWins=combo.every((comboCell)=>cells[comboCell]==="circle");
-      const squareWins=combo.every((comboCell)=>cells[comboCell]==="square");
+      const crossWins=combo.every((comboCell)=>cells[comboCell]==="cross");
 
       if(circleWins){
-        SetScore("circle wins");
-      }else if(squareWins){
-        SetScore("square wins");
+        SetScore("Circle wins");
+      }else if(crossWins){
+        SetScore("Cross wins");
       }
     })
 
@@ -56,9 +56,9 @@ function App() {
         score={score}/>
       ))}
       </div>
-      <div>
+      <div className="writing">
         <p>{score}</p>
-        {!score && <p>go {go}</p>}
+        {!score && <p>Go {go}</p>}
       </div>
     </main>
   );
